@@ -1,2 +1,2 @@
-# kronok
-Scheduled Kotlin Coroutines
+# kronik
+Scheduleable Kotlin Coroutines
