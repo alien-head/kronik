@@ -6,3 +6,12 @@ setup:
 
 lint:
 	./gradlew ktlintFormat
+
+build:
+	./gradlew build
+
+l:
+	./gradlew ktlintFormat
+
+b:
+	./gradlew build
