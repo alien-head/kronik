@@ -3,3 +3,6 @@ setup:
 	./gradlew ktlintApplyToIdea
 	echo "Applying github pre-commit hook"
 	./gradlew addKtlintFormatGitPreCommitHook
+
+lint:
+	./gradlew ktlintFormat
