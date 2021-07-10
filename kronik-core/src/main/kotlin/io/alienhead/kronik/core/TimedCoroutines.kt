@@ -33,16 +33,16 @@ suspend fun intervalLaunchUntil(
   block: () -> Unit
 ) = coroutineScope {
   // Prevent an infinite delay
-  if (initialDelayMillis == Long.MAX_VALUE || intervalMillis == Long.MAX_VALUE) return@coroutineScope
+  if (initialDelayMillis < Long.MAX_VALUE && intervalMillis < Long.MAX_VALUE) {
+    delay(initialDelayMillis)
 
-  delay(initialDelayMillis)
-
-  var timesLaunched = 0
-  while (timesLaunched < times) {
-    launch {
-      block()
+    var timesLaunched = 0
+    while (timesLaunched < times) {
+      launch {
+        block()
+      }
+      timesLaunched++
+      delay(intervalMillis)
     }
-    timesLaunched++
-    delay(intervalMillis)
   }
 }
